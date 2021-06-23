@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.Nayron.Interfaces.MainInterface">
+  <grid id="27dc6" binding="MainPainel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="683" height="478"/>
+    </constraints>
+    <properties>
+      <background color="-19947"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="34d9f" binding="geralcontent" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-14802645"/>
+          <enabled value="true"/>
+          <focusable value="false"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none">
+          <color color="-16156973"/>
+        </border>
+        <children/>
+      </grid>
+      <grid id="ac2f3" binding="buttonspainel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="20" bottom="0" right="0"/>
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-14802645"/>
+          <inheritsPopupMenu value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="634f3" class="javax.swing.JButton" binding="paginaInicialButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-19947"/>
+              <foreground color="-14802645"/>
+              <text value="Pagina Inicial"/>
+            </properties>
+          </component>
+          <component id="66bae" class="javax.swing.JButton" binding="criarNovoButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-19947"/>
+              <foreground color="-14802645"/>
+              <text value="Criar Novo"/>
+            </properties>
+          </component>
+          <hspacer id="d6c64">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
