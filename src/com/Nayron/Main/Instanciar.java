@@ -6,13 +6,14 @@ import java.awt.*;
 
 public class Instanciar extends JPanel{
     public JCheckBox check = new JCheckBox();
+    public JTextArea texto=new JTextArea();
     public Instanciar(String titulotext, String descricaotext){
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
         Color corContent= new Color(30, 33, 43);
         JPanel paineldetitulo = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel paineldedescricao=new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JTextArea texto=new JTextArea();
+
         JTextArea descricao=new JTextArea();
 
         this.setSize(400,100);

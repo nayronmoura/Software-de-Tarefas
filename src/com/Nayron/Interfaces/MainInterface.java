@@ -26,7 +26,7 @@ public class MainInterface extends JFrame {
         paginaInicialButton.setFocusable(false);
         criarNovoButton.setFocusable(false);
         geralcontent.setFocusable(false);
-        ImageIcon icone = new ImageIcon("./icone.png");
+        ImageIcon icone = new ImageIcon("\\icone.png");
         this.setIconImage(icone.getImage());
     }
 }

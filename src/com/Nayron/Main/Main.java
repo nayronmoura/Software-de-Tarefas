@@ -1,6 +1,7 @@
 package com.Nayron.Main;
 //depenências
 //java imports
+import com.Nayron.BancodeDados.BancodeDados;
 import com.Nayron.Interfaces.MainInterface;
 
 import javax.swing.*;
@@ -14,11 +15,13 @@ public class Main {
     static JPanel Paineldetarefas = new JPanel(new GridLayout(4,5));//Painel onde é mostrado as Atividadaes
     static JPanel cards = new JPanel(new CardLayout());//Painel que troca entre criar e mostrar as Atividades
     static Color corbackground=new Color(255,178,21);//cor padrão para background
+    static BancodeDados banco = new BancodeDados();
+    public static PainelCriarTarefas criar = new PainelCriarTarefas();
 
     public static void main(String[] args)
     {
+        banco.conectar();
         //variáveis
-        JPanel criar = new PainelCriarTarefas();
         criar.setBorder(null);
         JScrollPane scrol=new JScrollPane(Paineldetarefas);
 
@@ -32,6 +35,9 @@ public class Main {
         cards.add(criar,"criar");
 
         MudaPanel("tarefas");
+
+        banco.Resgatar();
+
     }
     public static void actions()//actions listener dos botões do frame principal
     {
