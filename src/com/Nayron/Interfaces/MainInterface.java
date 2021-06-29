@@ -26,7 +26,8 @@ public class MainInterface extends JFrame {
         paginaInicialButton.setFocusable(false);
         criarNovoButton.setFocusable(false);
         geralcontent.setFocusable(false);
-        ImageIcon icone = new ImageIcon("\\icone.png");
+        buttonspainel.setBorder(null);
+        ImageIcon icone = new ImageIcon("src/com/Nayron/iconeapp.png");
         this.setIconImage(icone.getImage());
     }
 }

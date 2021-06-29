@@ -5,7 +5,7 @@ import java.awt.*;
 
 
 public class Instanciar extends JPanel{
-    public JCheckBox check = new JCheckBox();
+    public JButton check = new JButton();
     public JTextArea texto=new JTextArea();
     public Instanciar(String titulotext, String descricaotext){
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -21,7 +21,10 @@ public class Instanciar extends JPanel{
         this.setBorder(BorderFactory.createBevelBorder(2));
 
         paineldetitulo.add(texto);
-        paineldetitulo.add(check);
+        JPanel p = new JPanel(new FlowLayout());
+        p.add(check);
+        p.setBackground(new Color(0,0,0,0));
+        paineldetitulo.add(p);
         paineldetitulo.setBackground(corContent);
         paineldetitulo.setSize(50,100);
 
@@ -30,7 +33,9 @@ public class Instanciar extends JPanel{
         paineldedescricao.setSize(100,100);
 
         check.setBackground(corContent);
-        check.setBounds(0,0,30,30);
+        //check.setSize(10,10);
+        ImageIcon icone = new ImageIcon("src/com/Nayron/icone-botaoexcluir.png");
+        check.setIcon(icone);
 
         texto.setForeground(new Color(97, 252, 39));
         texto.setBackground(new Color(1,1,1,0));

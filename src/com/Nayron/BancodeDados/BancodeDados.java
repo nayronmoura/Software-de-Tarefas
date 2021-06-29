@@ -1,32 +1,33 @@
 package com.Nayron.BancodeDados;
-import com.Nayron.Main.Main;
-
 import java.sql.*;
-
-import com.Nayron.Main.Main;
 
 public class BancodeDados {
     private Connection conexao;
     private Statement Statement;
-    public void conectar() {
+
+    public void conectar()
+    {
         try {
             Class.forName("org.sqlite.JDBC");
-            conexao = DriverManager.getConnection("jdbc:sqlite:.\\banco.db");
+            conexao = DriverManager.getConnection("jdbc:sqlite:src/com/Nayron/BancodeDados/banco.db");
             Statement= conexao.createStatement();
         }catch (Exception e){e.printStackTrace();}
     }
-    public void Resgatar(){
+
+    public ResultSet Resgatar()
+    {
         String sql = "SELECT * FROM Tarefas;";
         try {
             ResultSet resultSet= Statement.executeQuery(sql);
-            while (resultSet.next()){
-                Main.criar.criaratividade(resultSet.getString("Titulo"),resultSet.getString("Descricao"));
-            }
+            return resultSet;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
-    public void EnviarDados(String titulo, String descricao){
+
+    public void EnviarDados(String titulo, String descricao)
+    {
         String sql = "INSERT INTO Tarefas (Titulo,Descricao)"+" values('"+titulo+"','"+descricao+"');";
         try{
             Statement.executeUpdate(sql);
@@ -34,7 +35,9 @@ public class BancodeDados {
             System.out.println("ERRO: "+e.getMessage());
         }
     }
-    public void DeletarDados(String Titulo){
+
+    public void DeletarDados(String Titulo)
+    {
         String sql = "DELETE FROM Tarefas WHERE Titulo='"+Titulo+"';";
         try{
             Statement.executeUpdate(sql);
