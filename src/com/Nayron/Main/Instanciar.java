@@ -8,9 +8,9 @@ public class Instanciar extends JPanel{
     public JButton check = new JButton();
     public JTextArea texto=new JTextArea();
     public Instanciar(String titulotext, String descricaotext){
-        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        this.setLayout(new GridLayout(2,2,10,0));
 
-        Color corContent= new Color(30, 33, 43);
+        Color corContent= new Color(39,68,114);
         JPanel paineldetitulo = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel paineldedescricao=new JPanel(new FlowLayout(FlowLayout.LEFT));
 
@@ -21,9 +21,9 @@ public class Instanciar extends JPanel{
         this.setBorder(BorderFactory.createBevelBorder(2));
 
         paineldetitulo.add(texto);
-        JPanel p = new JPanel(new FlowLayout());
-        p.add(check);
-        p.setBackground(new Color(0,0,0,0));
+        JPanel p = new JPanel(new GridLayout(1,1));
+        p.add(check,JPanel.LEFT_ALIGNMENT);
+        p.setBackground(new Color(0,0,0));
         p.setFocusable(false);
         paineldetitulo.add(p);
         paineldetitulo.setBackground(corContent);
@@ -34,7 +34,7 @@ public class Instanciar extends JPanel{
         paineldedescricao.setSize(100,100);
 
         check.setBackground(corContent);
-        //check.setSize(10,10);
+        check.setSize(10,10);
         ImageIcon icone = new ImageIcon("src/com/Nayron/icone-botaoexcluir.png");
         check.setIcon(icone);
         check.setFocusable(false);
@@ -54,9 +54,9 @@ public class Instanciar extends JPanel{
         descricao.setEditable(false);
         descricao.setLineWrap(true);
         descricao.setText("Descrição:\n"+descricaotext);
-        this.setBackground(new Color(1,1,1,0.5f));
 
         this.add(paineldetitulo);
+        this.add(p,JPanel.LEFT_ALIGNMENT);
         this.add(paineldedescricao);
         this.setBorder(BorderFactory.createBevelBorder(1));
     }

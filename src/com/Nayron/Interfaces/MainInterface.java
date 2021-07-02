@@ -32,6 +32,8 @@ public class MainInterface extends JFrame {
         buttonspainel.setBorder(null);
         CriarPerfil.setFocusable(false);
         CriarPerfil.setBorderPainted(false);
+        criarNovoButton.setEnabled(false);
+        paginaInicialButton.setEnabled(false);
         Scroll.setViewportView(perfisContent);
         ImageIcon icone = new ImageIcon("src/com/Nayron/iconeapp.png");
         this.setIconImage(icone.getImage());

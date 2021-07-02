@@ -1,11 +1,13 @@
+/*Programa de Criação de Tarefas
+* Desenvolvido por: Nayron Moura
+* Github: https://github.com/noryaN1/
+*/
 package com.Nayron.Main;
-//depenências
-//java imports
-
+//dependencias
 import com.Nayron.BancodeDados.BancodeDados;
 import com.Nayron.Interfaces.CriarPerfis;
 import com.Nayron.Interfaces.MainInterface;
-
+//imports
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,12 +22,13 @@ public class Main {
     static MainInterface MainFrame = new MainInterface("Tarefas Milgrau");//Frame Principal
     public static JPanel Paineldetarefas = new JPanel(new GridLayout(4, 5));//Painel onde é mostrado as Atividadaes
     static JPanel cards = new JPanel(new CardLayout());//Painel que troca entre criar e mostrar as Atividades
-    static Color corbackground = new Color(255, 178, 21);//cor padrão para background
-    static BancodeDados banco = new BancodeDados();
-    public static PainelCriarTarefas criar = new PainelCriarTarefas();
-    public static String NomedoPerfil ="";
+    static Color corbackground = new Color(102, 153, 204);//cor padrão para background
+    static BancodeDados banco = new BancodeDados();//Banco de dados SQlite
+    public static PainelCriarTarefas criar = new PainelCriarTarefas();//Painel de criação.
+    public static String NomedoPerfil ="";//nome do Perfil atual
 
-    public static void main(String[] args) {
+    public static void main(String[] args)//Método Main
+    {
         banco.conectar();
         //variáveis
         criar.setBorder(null);
@@ -59,7 +62,8 @@ public class Main {
         });
     }
 
-    public static void restauraTarefas() {
+    public static void restauraTarefas()//Método responsável por restaurar as tarefas do banco de dados
+    {
         ResultSet result = banco.Resgatar("SELECT * FROM Tarefas " +
                 "WHERE Perfil='"+ NomedoPerfil +"';");
         try {
@@ -71,8 +75,10 @@ public class Main {
             throwables.getMessage();
         }
     }
-    public static void restaurarPerfis(){
-        ResultSet result = banco.Resgatar("SELECT Perfil FROM Tarefas");
+
+    public static void restaurarPerfis()//Método responsável por restaurar os perfis do banco de dados
+    {
+        ResultSet result = banco.Resgatar("SELECT DISTINCT Perfil FROM Tarefas");
         try {
             while (result.next()) {
                 String perfil = result.getString("Perfil");
@@ -101,13 +107,22 @@ public class Main {
 
     public static void CriarPerfil(String perfil){
         JButton botao = new JButton(perfil);
-        botao.setBackground(corbackground);
+        botao.setBackground(new Color(137, 207, 240));
         botao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Paineldetarefas.removeAll();
+                if(perfil==NomedoPerfil) {
+                MainFrame.criarNovoButton.setEnabled(false);
+                MainFrame.paginaInicialButton.setEnabled(false);
+                NomedoPerfil="";
+                atualizarpainel(Paineldetarefas);
+                }else{
                 NomedoPerfil=perfil;
-                restauraTarefas();
+                    MainFrame.criarNovoButton.setEnabled(true);
+                    MainFrame.paginaInicialButton.setEnabled(true);
+                    restauraTarefas();
+                }
             }
         });
         MainFrame.perfisContent.add(botao);
