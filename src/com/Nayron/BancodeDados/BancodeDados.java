@@ -1,4 +1,6 @@
 package com.Nayron.BancodeDados;
+import com.Nayron.Main.Main;
+
 import java.sql.*;
 
 public class BancodeDados {
@@ -14,9 +16,8 @@ public class BancodeDados {
         }catch (Exception e){e.printStackTrace();}
     }
 
-    public ResultSet Resgatar()
+    public ResultSet Resgatar(String sql)
     {
-        String sql = "SELECT * FROM Tarefas;";
         try {
             ResultSet resultSet= Statement.executeQuery(sql);
             return resultSet;
@@ -28,7 +29,7 @@ public class BancodeDados {
 
     public void EnviarDados(String titulo, String descricao)
     {
-        String sql = "INSERT INTO Tarefas (Titulo,Descricao)"+" values('"+titulo+"','"+descricao+"');";
+        String sql = "INSERT INTO Tarefas (Perfil,Titulo,Descricao)"+" values('"+ Main.NomedoPerfil+"','"+titulo+"','"+descricao+"');";
         try{
             Statement.executeUpdate(sql);
         }catch (SQLException e){

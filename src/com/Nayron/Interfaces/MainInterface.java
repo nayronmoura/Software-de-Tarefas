@@ -13,6 +13,9 @@ public class MainInterface extends JFrame {
     public JButton criarNovoButton;
     private JPanel buttonspainel;
     public JPanel geralcontent;
+    public JButton CriarPerfil;
+    private JScrollPane Scroll;
+    public JPanel perfisContent= new JPanel();
 
     public MainInterface(String Texto){
         super.setTitle(Texto);
@@ -27,6 +30,9 @@ public class MainInterface extends JFrame {
         criarNovoButton.setFocusable(false);
         geralcontent.setFocusable(false);
         buttonspainel.setBorder(null);
+        CriarPerfil.setFocusable(false);
+        CriarPerfil.setBorderPainted(false);
+        Scroll.setViewportView(perfisContent);
         ImageIcon icone = new ImageIcon("src/com/Nayron/iconeapp.png");
         this.setIconImage(icone.getImage());
     }
