@@ -23,7 +23,7 @@ public class Instanciar extends JPanel{
         paineldetitulo.add(texto);
         JPanel p = new JPanel(new GridLayout(1,1));
         p.add(check,JPanel.LEFT_ALIGNMENT);
-        p.setBackground(new Color(0,0,0));
+        p.setBackground(corContent);
         p.setFocusable(false);
         paineldetitulo.add(p);
         paineldetitulo.setBackground(corContent);

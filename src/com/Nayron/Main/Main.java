@@ -58,6 +58,9 @@ public class Main {
         MainFrame.paginaInicialButton.addActionListener(e -> MudaPanel("tarefas"));
         MainFrame.CriarPerfil.addActionListener(e->{
             CriarPerfis perfil = new CriarPerfis();
+            int width = MainFrame.getSize().width/2;
+            int height = MainFrame.getSize().height/2;
+            perfil.setLocation(width,height);
             perfil.setVisible(true);
         });
     }
