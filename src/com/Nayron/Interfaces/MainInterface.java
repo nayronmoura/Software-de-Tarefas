@@ -23,7 +23,7 @@ public class MainInterface extends JFrame {
         this.pack();
         this.setVisible(true);
 
-        this.setSize(400,400);
+        this.setMinimumSize(new Dimension(400,400));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         geralcontent.setSize(new Dimension(400,900));
         paginaInicialButton.setFocusable(false);

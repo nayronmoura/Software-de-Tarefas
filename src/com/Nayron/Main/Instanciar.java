@@ -24,6 +24,7 @@ public class Instanciar extends JPanel{
         JPanel p = new JPanel(new FlowLayout());
         p.add(check);
         p.setBackground(new Color(0,0,0,0));
+        p.setFocusable(false);
         paineldetitulo.add(p);
         paineldetitulo.setBackground(corContent);
         paineldetitulo.setSize(50,100);
@@ -36,6 +37,8 @@ public class Instanciar extends JPanel{
         //check.setSize(10,10);
         ImageIcon icone = new ImageIcon("src/com/Nayron/icone-botaoexcluir.png");
         check.setIcon(icone);
+        check.setFocusable(false);
+        check.setBorderPainted(false);
 
         texto.setForeground(new Color(97, 252, 39));
         texto.setBackground(new Color(1,1,1,0));

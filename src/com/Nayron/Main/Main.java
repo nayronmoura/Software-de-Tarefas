@@ -31,7 +31,8 @@ public class Main {
         criar.setBorder(null);
         Paineldetarefas.setBorder(BorderFactory.createEmptyBorder());
         Paineldetarefas.setFocusable(false);
-        cards.setBorder(null);
+        Paineldetarefas.setBorder(BorderFactory.createEmptyBorder());
+        cards.setBorder(BorderFactory.createEmptyBorder());
         JScrollPane scrol = new JScrollPane(Paineldetarefas);
 
         actions();
@@ -104,6 +105,7 @@ public class Main {
         botao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Paineldetarefas.removeAll();
                 NomedoPerfil=perfil;
                 restauraTarefas();
             }
