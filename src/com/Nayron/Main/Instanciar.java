@@ -8,7 +8,7 @@ public class Instanciar extends JPanel{
     public JButton check = new JButton();
     public JTextArea texto=new JTextArea();
     public Instanciar(String titulotext, String descricaotext){
-        this.setLayout(new GridLayout(2,2,10,0));
+        this.setLayout(new GridLayout(2,2));
 
         Color corContent= new Color(39,68,114);
         JPanel paineldetitulo = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -54,6 +54,7 @@ public class Instanciar extends JPanel{
         descricao.setEditable(false);
         descricao.setLineWrap(true);
         descricao.setText("Descrição:\n"+descricaotext);
+        descricao.setEnabled(false);
 
         this.add(paineldetitulo);
         this.add(p,JPanel.LEFT_ALIGNMENT);

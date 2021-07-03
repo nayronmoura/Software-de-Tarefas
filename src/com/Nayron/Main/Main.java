@@ -57,11 +57,17 @@ public class Main {
         MainFrame.criarNovoButton.addActionListener(e -> MudaPanel("criar"));
         MainFrame.paginaInicialButton.addActionListener(e -> MudaPanel("tarefas"));
         MainFrame.CriarPerfil.addActionListener(e->{
+            if(MainFrame.perfisContent.getComponentCount()<3){
             CriarPerfis perfil = new CriarPerfis();
             int width = MainFrame.getSize().width/2;
             int height = MainFrame.getSize().height/2;
             perfil.setLocation(width,height);
             perfil.setVisible(true);
+            }else{
+                MainFrame.Error.setText("Você completou a quantidade Máxima de Perfis"+
+                        " Conclua antes de criar mais.");
+
+            }
         });
     }
 
@@ -102,13 +108,19 @@ public class Main {
             case "tarefas":
                 MainFrame.paginaInicialButton.setBorderPainted(false);
                 MainFrame.criarNovoButton.setBorderPainted(true);
+                break;
+            case "tarefa-zoom":
+                MainFrame.paginaInicialButton.setBorderPainted(false);
+                MainFrame.criarNovoButton.setBorderPainted(false);
+                break;
         }
 
         CardLayout cl = (CardLayout) cards.getLayout();
         cl.show(cards, nome);
     }
 
-    public static void CriarPerfil(String perfil){
+    public static void CriarPerfil(String perfil)
+    {
         JPanel painel= new JPanel(new FlowLayout());
         JButton botao = new JButton(perfil);
         JButton botaoExcluir = new JButton();
@@ -132,11 +144,12 @@ public class Main {
                 }
             }
         });
-        botao.setBounds(50,10,2,5);
         botao.setFocusable(false);
         botao.setBorderPainted(false);
         botao.setBackground(new Color(255,255,255));
         botao.setFocusable(false);
+        botao.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
+        botao.setBackground(new Color(255,255,255));
 
         botaoExcluir.setIcon(new ImageIcon("src/com/Nayron/icone-botaomarl.png"));
         botaoExcluir.setBorderPainted(false);
@@ -148,16 +161,20 @@ public class Main {
             }
         });
         botaoExcluir.setBackground(new Color(255,255,255));
+        botaoExcluir.setFocusable(false);
+        botaoExcluir.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
 
         painel.setBackground(new Color(255,255,255));
         painel.add(botao);
         painel.add(botaoExcluir);
+        painel.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
 
         MainFrame.perfisContent.add(painel);
         atualizarpainel(MainFrame.perfisContent);
     }
 
-    public static void atualizarpainel(Component c){
+    public static void atualizarpainel(Component c)
+    {
         c.repaint();
         c.validate();
     }
