@@ -109,7 +109,10 @@ public class Main {
     }
 
     public static void CriarPerfil(String perfil){
+        JPanel painel= new JPanel(new FlowLayout());
         JButton botao = new JButton(perfil);
+        JButton botaoExcluir = new JButton();
+
         botao.setBackground(new Color(137, 207, 240));
         botao.addActionListener(new ActionListener() {
             @Override
@@ -119,6 +122,7 @@ public class Main {
                 MainFrame.criarNovoButton.setEnabled(false);
                 MainFrame.paginaInicialButton.setEnabled(false);
                 NomedoPerfil="";
+                MudaPanel("tarefas");
                 atualizarpainel(Paineldetarefas);
                 }else{
                 NomedoPerfil=perfil;
@@ -128,7 +132,28 @@ public class Main {
                 }
             }
         });
-        MainFrame.perfisContent.add(botao);
+        botao.setBounds(50,10,2,5);
+        botao.setFocusable(false);
+        botao.setBorderPainted(false);
+        botao.setBackground(new Color(255,255,255));
+        botao.setFocusable(false);
+
+        botaoExcluir.setIcon(new ImageIcon("src/com/Nayron/icone-botaomarl.png"));
+        botaoExcluir.setBorderPainted(false);
+        botaoExcluir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainFrame.perfisContent.remove(painel);
+                atualizarpainel(MainFrame.perfisContent);
+            }
+        });
+        botaoExcluir.setBackground(new Color(255,255,255));
+
+        painel.setBackground(new Color(255,255,255));
+        painel.add(botao);
+        painel.add(botaoExcluir);
+
+        MainFrame.perfisContent.add(painel);
         atualizarpainel(MainFrame.perfisContent);
     }
 

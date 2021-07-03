@@ -2,11 +2,8 @@
   <artifact type="jar" name="Tarefas:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Tarefas_jar</output-path>
     <root id="archive" name="Tarefas.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/out/Artifacts/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="Tarefas" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/sqlite-jdbc-3.34.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/Nayron/modules/sqlite-jdbc-3.34.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar" path-in-jar="/" />
     </root>
   </artifact>
