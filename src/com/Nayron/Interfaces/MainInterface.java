@@ -15,6 +15,7 @@ public class MainInterface extends JFrame {
     public JButton CriarPerfil;
     private JScrollPane Scroll;
     public JTextArea Error;
+    private JPanel Content;
     private JPanel IconePeris;
     public JPanel perfisContent= new JPanel();
 
@@ -41,9 +42,11 @@ public class MainInterface extends JFrame {
         paginaInicialButton.setEnabled(false);
         Scroll.setViewportView(perfisContent);
         Scroll.setBorder(BorderFactory.createEmptyBorder());
+        Error.setWrapStyleWord(true);
+        Error.setLineWrap(true);
 
         perfisContent.setBackground(new Color(101,172,182));
-        ImageIcon icone = new ImageIcon("src/com/Nayron/icone-botaomarl.png");
+        ImageIcon icone = new ImageIcon("src/com/Nayron/iconeapp.png");
 
         this.setIconImage(icone.getImage());
     }

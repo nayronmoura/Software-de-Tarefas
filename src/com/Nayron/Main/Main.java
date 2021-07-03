@@ -1,9 +1,10 @@
 /*Programa de Criação de Tarefas
-* Desenvolvido por: Nayron Moura
-* Github: https://github.com/noryaN1/
-*/
+ * Desenvolvido por: Nayron Moura
+ * Github: https://github.com/noryaN1/
+ */
 package com.Nayron.Main;
 //dependencias
+
 import com.Nayron.BancodeDados.BancodeDados;
 import com.Nayron.Interfaces.CriarPerfis;
 import com.Nayron.Interfaces.MainInterface;
@@ -25,7 +26,7 @@ public class Main {
     static Color corbackground = new Color(102, 153, 204);//cor padrão para background
     static BancodeDados banco = new BancodeDados();//Banco de dados SQlite
     public static PainelCriarTarefas criar = new PainelCriarTarefas();//Painel de criação.
-    public static String NomedoPerfil ="";//nome do Perfil atual
+    public static String NomedoPerfil = "";//nome do Perfil atual
 
     public static void main(String[] args)//Método Main
     {
@@ -56,15 +57,15 @@ public class Main {
     {
         MainFrame.criarNovoButton.addActionListener(e -> MudaPanel("criar"));
         MainFrame.paginaInicialButton.addActionListener(e -> MudaPanel("tarefas"));
-        MainFrame.CriarPerfil.addActionListener(e->{
-            if(MainFrame.perfisContent.getComponentCount()<3){
-            CriarPerfis perfil = new CriarPerfis();
-            int width = MainFrame.getSize().width/2;
-            int height = MainFrame.getSize().height/2;
-            perfil.setLocation(width,height);
-            perfil.setVisible(true);
-            }else{
-                MainFrame.Error.setText("Você completou a quantidade Máxima de Perfis"+
+        MainFrame.CriarPerfil.addActionListener(e -> {
+            if (MainFrame.perfisContent.getComponentCount() < 3) {
+                CriarPerfis perfil = new CriarPerfis();
+                int width = MainFrame.getSize().width / 2;
+                int height = MainFrame.getSize().height / 2;
+                perfil.setLocation(width, height);
+                perfil.setVisible(true);
+            } else {
+                MainFrame.Error.setText("Você completou a quantidade Máxima de Perfis" +
                         " Conclua antes de criar mais.");
 
             }
@@ -74,7 +75,7 @@ public class Main {
     public static void restauraTarefas()//Método responsável por restaurar as tarefas do banco de dados
     {
         ResultSet result = banco.Resgatar("SELECT * FROM Tarefas " +
-                "WHERE Perfil='"+ NomedoPerfil +"';");
+                "WHERE Perfil='" + NomedoPerfil + "';");
         try {
             while (result.next()) {
                 criar.criaratividade(result.getString("Titulo"), result.getString("Descricao"));
@@ -119,9 +120,8 @@ public class Main {
         cl.show(cards, nome);
     }
 
-    public static void CriarPerfil(String perfil)
-    {
-        JPanel painel= new JPanel(new FlowLayout());
+    public static void CriarPerfil(String perfil) {
+        JPanel painel = new JPanel(new FlowLayout());
         JButton botao = new JButton(perfil);
         JButton botaoExcluir = new JButton();
 
@@ -129,27 +129,29 @@ public class Main {
         botao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Paineldetarefas.removeAll();
-                if(perfil==NomedoPerfil) {
-                MainFrame.criarNovoButton.setEnabled(false);
-                MainFrame.paginaInicialButton.setEnabled(false);
-                NomedoPerfil="";
-                MudaPanel("tarefas");
-                atualizarpainel(Paineldetarefas);
-                }else{
-                NomedoPerfil=perfil;
+                if (perfil == NomedoPerfil) {
+                    Paineldetarefas.removeAll();
+                    MainFrame.criarNovoButton.setEnabled(false);
+                    MainFrame.paginaInicialButton.setEnabled(false);
+                    NomedoPerfil = "";
+                    MudaPanel("tarefas");
+                    atualizarpainel(Paineldetarefas);
+                } else {
+                    Paineldetarefas.removeAll();
+                    NomedoPerfil = perfil;
                     MainFrame.criarNovoButton.setEnabled(true);
                     MainFrame.paginaInicialButton.setEnabled(true);
+                    MudaPanel("tarefas");
                     restauraTarefas();
                 }
             }
         });
         botao.setFocusable(false);
         botao.setBorderPainted(false);
-        botao.setBackground(new Color(255,255,255));
+        botao.setBackground(new Color(255, 255, 255));
         botao.setFocusable(false);
         botao.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
-        botao.setBackground(new Color(255,255,255));
+        botao.setBackground(new Color(255, 255, 255));
 
         botaoExcluir.setIcon(new ImageIcon("src/com/Nayron/icone-botaomarl.png"));
         botaoExcluir.setBorderPainted(false);
@@ -160,11 +162,11 @@ public class Main {
                 atualizarpainel(MainFrame.perfisContent);
             }
         });
-        botaoExcluir.setBackground(new Color(255,255,255));
+        botaoExcluir.setBackground(new Color(255, 255, 255));
         botaoExcluir.setFocusable(false);
         botaoExcluir.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
 
-        painel.setBackground(new Color(255,255,255));
+        painel.setBackground(new Color(255, 255, 255));
         painel.add(botao);
         painel.add(botaoExcluir);
         painel.setSize(new Dimension(Integer.MAX_VALUE, painel.getMinimumSize().height));
@@ -173,8 +175,7 @@ public class Main {
         atualizarpainel(MainFrame.perfisContent);
     }
 
-    public static void atualizarpainel(Component c)
-    {
+    public static void atualizarpainel(Component c) {
         c.repaint();
         c.validate();
     }

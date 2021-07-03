@@ -33,7 +33,7 @@ public class PainelCriarTarefas extends JPanel {
         criarButtom.setFocusable(false);
         criarButtom.setSize(40, 60);
 
-        AreaErro.setBackground(new Color(1,1,1,0));
+        AreaErro.setBackground(new Color(1, 1, 1, 0));
         AreaErro.enableInputMethods(false);
         AreaErro.setLineWrap(true);
 
@@ -65,10 +65,14 @@ public class PainelCriarTarefas extends JPanel {
         painel.check.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.Paineldetarefas.remove(painel);
-                Main.Paineldetarefas.repaint();
-                Main.Paineldetarefas.validate();
-                Main.banco.DeletarDados(painel.texto.getText());
+                if (Main.Paineldetarefas.getComponentCount() <= 20) {
+                    Main.Paineldetarefas.remove(painel);
+                    Main.Paineldetarefas.repaint();
+                    Main.Paineldetarefas.validate();
+                    Main.banco.DeletarDados(painel.texto.getText());
+                } else {
+                    Main.MainFrame.Error.setText("Conclua as tarefas antes de criar mais.");
+                }
             }
         });
         Main.Paineldetarefas.add(painel, Main.constrains);
@@ -85,10 +89,10 @@ public class PainelCriarTarefas extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (titulo.getText().length() >= 1 && descricao.getText().length() >= 1) {
                     Component[] comp = Main.Paineldetarefas.getComponents();
-                    if (comp.length<=19) {
+                    if (comp.length <= 19) {
                         if (titulo.getText() != "" && descricao.getText() != "") {
                             criaratividade(titulo.getText(), descricao.getText());
-                            Main.banco.EnviarDados(titulo.getText(),descricao.getText());
+                            Main.banco.EnviarDados(titulo.getText(), descricao.getText());
                             titulo.setText("");
                             descricao.setText("");
                             Error("");
