@@ -11,7 +11,8 @@ public class PainelCriarTarefas extends JPanel {
     JTextField titulo = new JTextField();
     JTextArea descricao = new JTextArea();
 
-    public PainelCriarTarefas() {
+    public PainelCriarTarefas()
+    {
         this.setLayout(new GridLayout(3, 1));
         this.setBorder(null);
 
@@ -56,7 +57,8 @@ public class PainelCriarTarefas extends JPanel {
         this.add(painel3);
     }
 
-    public void criaratividade(String titulo, String descricao) {
+    public void criaratividade(String titulo, String descricao)
+    {
         Main.constrains.fill = GridBagConstraints.BOTH;
         Main.constrains.gridwidth = 7;
         Main.constrains.gridy += 3;
@@ -79,7 +81,8 @@ public class PainelCriarTarefas extends JPanel {
         Main.MudaPanel("tarefas");
     }
 
-    public void Error(String ERRO) {
+    public void Error(String ERRO)
+    {
         AreaErro.setText(ERRO);
     }
 

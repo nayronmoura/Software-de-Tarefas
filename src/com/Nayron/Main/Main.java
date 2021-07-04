@@ -3,7 +3,7 @@
  * Github: https://github.com/noryaN1/
  */
 package com.Nayron.Main;
-//dependencias
+//dependencies
 
 import com.Nayron.BancodeDados.BancodeDados;
 import com.Nayron.Interfaces.CriarPerfis;
@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//Classe main
+//Class main
 public class Main {
     //Váriaveis Estaticas
     static GridBagConstraints constrains = new GridBagConstraints();//grid para instanciar as atividades
@@ -120,7 +120,8 @@ public class Main {
         cl.show(cards, nome);
     }
 
-    public static void CriarPerfil(String perfil) {
+    public static void CriarPerfil(String perfil)
+    {
         JPanel painel = new JPanel(new FlowLayout());
         JButton botao = new JButton(perfil);
         JButton botaoExcluir = new JButton();
@@ -175,7 +176,8 @@ public class Main {
         atualizarpainel(MainFrame.perfisContent);
     }
 
-    public static void atualizarpainel(Component c) {
+    public static void atualizarpainel(Component c)
+    {
         c.repaint();
         c.validate();
     }

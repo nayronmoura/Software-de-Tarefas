@@ -45,7 +45,7 @@ public class MainInterface extends JFrame {
         Error.setWrapStyleWord(true);
         Error.setLineWrap(true);
 
-        perfisContent.setBackground(new Color(101,172,182));
+        perfisContent.setBackground(new Color(94,151,174));
         ImageIcon icone = new ImageIcon("src/com/Nayron/iconeapp.png");
 
         this.setIconImage(icone.getImage());

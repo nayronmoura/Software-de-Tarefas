@@ -7,7 +7,8 @@ import java.awt.*;
 public class Instanciar extends JPanel{
     public JButton check = new JButton();
     public JTextArea texto=new JTextArea();
-    public Instanciar(String titulotext, String descricaotext){
+    public Instanciar(String titulotext, String descricaotext)
+    {
         this.setLayout(new GridLayout(2,2));
 
         Color corContent= new Color(39,68,114);
