@@ -1,3 +1,9 @@
+/*Desenvolvido por: Nayron Moura;
+ * Github: https://github.com/noryaN1/;
+ *
+ * Código responsável por criar a instânciar de tarefas;
+ */
+
 package com.Nayron.Main;
 
 import javax.swing.*;

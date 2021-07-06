@@ -1,3 +1,9 @@
+/*Desenvolvido por: Nayron Moura;
+ * Github: https://github.com/noryaN1/;
+ *
+ * Código responsável por criar as atividades e mostralás no JPanel principal;
+ */
+
 package com.Nayron.Main;
 
 import javax.swing.*;
@@ -11,7 +17,7 @@ public class PainelCriarTarefas extends JPanel {
     JTextField titulo = new JTextField();
     JTextArea descricao = new JTextArea();
 
-    public PainelCriarTarefas()
+    public PainelCriarTarefas()//Configuração do JPanel
     {
         this.setLayout(new GridLayout(3, 1));
         this.setBorder(null);
@@ -57,7 +63,7 @@ public class PainelCriarTarefas extends JPanel {
         this.add(painel3);
     }
 
-    public void criaratividade(String titulo, String descricao)
+    public void criaratividade(String titulo, String descricao)//Responsável por criar o JPanel da tarefa
     {
         Main.constrains.fill = GridBagConstraints.BOTH;
         Main.constrains.gridwidth = 7;
@@ -81,12 +87,13 @@ public class PainelCriarTarefas extends JPanel {
         Main.MudaPanel("tarefas");
     }
 
-    public void Error(String ERRO)
+    public void Error(String ERRO)//Menssagem de erro
     {
         AreaErro.setText(ERRO);
     }
 
-    public void actions() {
+    public void actions()//Action dos botões
+    {
         criarButtom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

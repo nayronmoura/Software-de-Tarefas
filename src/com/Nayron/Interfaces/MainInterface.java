@@ -1,5 +1,8 @@
-/*
-* Main Frame da aplicação
+/*Desenvolvido por: Nayron Moura;
+* Github: https://github.com/noryaN1/;
+*
+* Código responsável por criar o design do Frame Principal.
+* obs: para ver o design real, utulizando o InteliJ abra o MainFrame.form.
 */
 
 package com.Nayron.Interfaces;

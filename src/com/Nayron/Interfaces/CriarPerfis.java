@@ -1,3 +1,9 @@
+/*Desenvolvido por: Nayron Moura;
+ * Github: https://github.com/noryaN1/;
+ *
+ * Código responsável criar um JFrame que cria os perfis;
+ */
+
 package com.Nayron.Interfaces;
 
 import com.Nayron.Main.Main;

@@ -1,3 +1,9 @@
+/*Desenvolvido por: Nayron Moura;
+ * Github: https://github.com/noryaN1/;
+ *
+ * Código responsável por gerenciar e efetucar consultas e conexão do banco de dados;
+ */
+
 package com.Nayron.BancodeDados;
 import com.Nayron.Main.Main;
 

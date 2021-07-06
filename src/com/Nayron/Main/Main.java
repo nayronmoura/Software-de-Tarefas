@@ -1,10 +1,24 @@
-/*Programa de Criação de Tarefas
- * Desenvolvido por: Nayron Moura
- * Github: https://github.com/noryaN1/
+/*Programa de Gerenciamento de Tarefas
+ * Desenvolvido por: Nayron Moura;
+ * Github: https://github.com/noryaN1/;
+ *
+ * Descrição dos codigos:
+ * Main- Codigo principal;
+ * PainelCriarTarefas- Cria o JPanel de criar atividades;
+ * Limitador- Documento que limita a quantidade de palavras de um JTextArea ou JTextfield
+ * Instanciar- Código responsável por criar um JPanel das tarefas que são espostas no JPanel Paineldetarefas;
+ *
+ * Criar Perfis- Código de um JFrame que cria os Perfis;
+ * Criarperfis.form- Formulário do InteliJ para interface;
+ * MainInterface - JFrame com todo o design do MainFrame;
+ * MainInterface.form - Formulário do InteliJ para interface;
+ *
+ * BancodeDados - Código responsável por todo o manejamento do banco de dados;
+ * banco.db - banco de dados SQLITE
  */
-package com.Nayron.Main;
-//dependencies
 
+package com.Nayron.Main;
+//dependencias
 import com.Nayron.BancodeDados.BancodeDados;
 import com.Nayron.Interfaces.CriarPerfis;
 import com.Nayron.Interfaces.MainInterface;
@@ -20,7 +34,7 @@ import java.sql.SQLException;
 public class Main {
     //Váriaveis Estaticas
     static GridBagConstraints constrains = new GridBagConstraints();//grid para instanciar as atividades
-    static MainInterface MainFrame = new MainInterface("Tarefas Milgrau");//Frame Principal
+    static MainInterface MainFrame = new MainInterface("Controle suas Tarefas");//Frame Principal
     public static JPanel Paineldetarefas = new JPanel(new GridLayout(4, 5));//Painel onde é mostrado as Atividadaes
     static JPanel cards = new JPanel(new CardLayout());//Painel que troca entre criar e mostrar as Atividades
     static Color corbackground = new Color(102, 153, 204);//cor padrão para background
@@ -53,7 +67,7 @@ public class Main {
 
     }
 
-    public static void actions()//actions listener dos botões do frame principal
+    public static void actions()//actions listener dos botões do frame principal.
     {
         MainFrame.criarNovoButton.addActionListener(e -> MudaPanel("criar"));
         MainFrame.paginaInicialButton.addActionListener(e -> MudaPanel("tarefas"));
@@ -72,7 +86,7 @@ public class Main {
         });
     }
 
-    public static void restauraTarefas()//Método responsável por restaurar as tarefas do banco de dados
+    public static void restauraTarefas()//Método responsável por restaurar as tarefas do banco de dados.
     {
         ResultSet result = banco.Resgatar("SELECT * FROM Tarefas " +
                 "WHERE Perfil='" + NomedoPerfil + "';");
@@ -86,7 +100,7 @@ public class Main {
         }
     }
 
-    public static void restaurarPerfis()//Método responsável por restaurar os perfis do banco de dados
+    public static void restaurarPerfis()//Método responsável por restaurar os perfis do banco de dados.
     {
         ResultSet result = banco.Resgatar("SELECT DISTINCT Perfil FROM Tarefas");
         try {
@@ -99,7 +113,7 @@ public class Main {
         }
     }
 
-    public static void MudaPanel(String nome)//Método responsável por trocar os JPainel do cards
+    public static void MudaPanel(String nome)//Método responsável por trocar os JPainel do cards.
     {
         switch (nome) {
             case "criar":
@@ -120,7 +134,7 @@ public class Main {
         cl.show(cards, nome);
     }
 
-    public static void CriarPerfil(String perfil)
+    public static void CriarPerfil(String perfil)//Método responsável por criar os perfis e adicionalos ao JPanel.
     {
         JPanel painel = new JPanel(new FlowLayout());
         JButton botao = new JButton(perfil);
@@ -176,7 +190,7 @@ public class Main {
         atualizarpainel(MainFrame.perfisContent);
     }
 
-    public static void atualizarpainel(Component c)
+    public static void atualizarpainel(Component c)//Método responsável por atualizar o painel desejado a cada alteração.
     {
         c.repaint();
         c.validate();
